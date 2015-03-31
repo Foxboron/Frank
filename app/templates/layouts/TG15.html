@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>
+      JARVIS
+      {% if widget  %}
+      &mdash; {{ widget|capitalize }}
+      {% endif %}
+    </title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.gridster/0.5.4/jquery.gridster.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.css">
+    {% if config['DEBUG'] %}
+    {% assets "css_all" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
+    {% else %}
+    {% assets "css_min_all" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
+    {% endif %}
+  </head>
+  <body>
+
+<div class="gridster">
+  <ul>
+    {% if is_widget_enabled('time') %}
+    <li data-row="1" data-col="1" data-sizex="3" data-sizey="2">
+      <div id="time"></div>
+    </li>
+    {% endif %}
+    {% if is_widget_enabled('deadlines') %}
+    <li data-row="1" data-col="1" data-sizex="3" data-sizey="4">
+      <div id="deadlines"></div>
+    </li>
+    {% endif %}
+    {% if is_widget_enabled('creativiascene') %}
+    <li data-row="1" data-col="1" data-sizex="3" data-sizey="4">
+      <div id="creativiascene"></div>
+    </li>
+    {% endif %}
+
+    <li id="impress-wrapper" data-row="1" data-col="1" data-sizex="7" data-sizey="5"> 
+      <div id="kiosk"></div>
+    </li>
+
+
+  </ul>
+</div>
+    <script type="text/javascript" src="/static/impress.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.gridster/0.5.4/jquery.gridster.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mithril/0.1.19/mithril.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/lang/nb.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/rickshaw/1.4.6/rickshaw.min.js"></script>
+    {% if config['DEBUG'] %}
+    {% assets "js_all" %}
+    <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+    {% else %}
+    {% assets "js_min_all" %}
+    <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+    {% endif %}
+<script>
+</script>
+  </body>
+</html>

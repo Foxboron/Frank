@@ -3,9 +3,6 @@
 .gmail.json
 /.vagrant/
 /app/static/.webassets-cache/
-/app/static/gen/
-/app/templates/layouts/
 /inventory
 /venv/
-config.py
 config_*.py
