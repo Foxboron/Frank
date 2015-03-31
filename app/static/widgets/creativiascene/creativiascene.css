@@ -1,0 +1,27 @@
+#creativiascene {
+  height: 100%;
+  padding: 5px;
+  background: #3D3242;
+  text-align: center;
+}
+#creativiascene h1 {
+  font-size: 55px;
+  margin: 0 0 10px 0;
+}
+#creativiascene h2 {
+  font-size: 25px;
+}
+#creativiascene p {
+  font-size: 16px;
+}
+#creativiascene table {
+  margin: 0 10px 0 10px;
+}
+#creativiascene .summary {
+  text-align: left;
+  width: 100%;
+}
+#creativiascene .start {
+  text-align: right;
+  white-space: nowrap;
+}

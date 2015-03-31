@@ -5,9 +5,10 @@ import logging
 import os
 import Queue
 import SocketServer
+import requests
 from apscheduler.scheduler import Scheduler
 from datetime import datetime, timedelta
-from flask import Flask, render_template, Response, request, abort
+from flask import Flask, render_template, Response, request, abort, make_response
 from flask.ext.assets import Environment, Bundle
 from flask.templating import TemplateNotFound
 from jobs import load_jobs
@@ -60,7 +61,6 @@ def _configure_bundles():
     assets.register('css_min_all', Bundle(*css, filters='cssmin',
                                           output='gen/styles.min.css'))
 
-
 @app.route('/w/<widget>')
 @app.route('/widget/<widget>')
 def widget(widget):
@@ -85,6 +85,25 @@ def dashboard(layout=None):
         except TemplateNotFound:
             abort(404)
     return render_template('index.html', locale=locale)
+
+
+@app.route("/kiosk")
+def kiosk():
+    s = requests.get("http://unicorn.gathering.org/api/kiosk").text
+    resp = make_response(s)
+    resp.mimetype = 'text/plain'
+    return resp
+
+@app.route("/mentorer")
+def mentors():
+    s =  r'''{"success":true,"action":"listSlides","data":
+        [{
+            "title":"Mentors",
+            "content":"<div class=\"align-center\"><h1>Creative Mentors!<\/h1><\/div>"}
+            ]}'''
+    resp = make_response(s)
+    resp.mimetype = 'text/plain'
+    return resp
 
 
 @app.route('/events')

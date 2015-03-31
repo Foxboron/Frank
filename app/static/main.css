@@ -25,3 +25,8 @@ body {
 * {
   box-sizing: border-box;
 }
+
+#impress-wrapper {
+    overflow: hidden;
+    position: relative;
+}

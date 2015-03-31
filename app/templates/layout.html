@@ -1,73 +1,37 @@
 <div class="gridster">
   <ul>
-    {% if is_widget_enabled('yr') %}
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
-      <div id="yr"></div>
-    </li>
-    {% endif %}
     {% if is_widget_enabled('time') %}
     <li data-row="1" data-col="2" data-sizex="2" data-sizey="2">
       <div id="time"></div>
     </li>
     {% endif %}
-    {% if is_widget_enabled('atb') %}
-    <li data-row="1" data-col="3" data-sizex="2" data-sizey="2">
-      <div id="atb"></div>
-    </li>
-    {% endif %}
-    {% if is_widget_enabled('hackernews') %}
-    <li data-row="1" data-col="4" data-sizex="2" data-sizey="2">
-      <div id="hackernews"></div>
-    </li>
-    {% endif %}
-    {% if is_widget_enabled('sonos') %}
-    <li data-row="2" data-col="1" data-sizex="2" data-sizey="2">          
-      <div id="sonos"></div>
-    </li>
-    {% endif %}
-    {% if is_widget_enabled('calendar') %}
-    <li data-row="2" data-col="2" data-sizex="2" data-sizey="2">
-      <div id="calendar"></div>
-    </li>
-    {% endif %}
+
     {% if is_widget_enabled('uptime') %}
     <li data-row="2" data-col="3" data-sizex="2" data-sizey="2">
       <div id="uptime"></div>
     </li>
     {% endif %}
-    {% if is_widget_enabled('plex') %}
-    <li data-row="2" data-col="4" data-sizex="2" data-sizey="2">
-      <div id="plex"></div>
-    </li>
-    {% endif %}
-    {% if is_widget_enabled('nsb') %}
-    <li data-row="3" data-col="1" data-sizex="2" data-sizey="2">
-      <div id="nsb"></div>
-    </li>
-    {% endif %}
+
     {% if is_widget_enabled('ping') %}
     <li data-row="3" data-col="2" data-sizex="4" data-sizey="2">
       <div id="ping"></div>
     </li>
     {% endif %}
-    {% if is_widget_enabled('gmail') %}
-    <li data-row="3" data-col="4" data-sizex="2" data-sizey="2">
-      <div id="gmail"></div>
-    </li>
-    {% endif %}
-    {% if is_widget_enabled('avinor') %}
-    <li data-row="4" data-col="1" data-sizex="2" data-sizey="2">
-      <div id="avinor"></div>
-    </li>
-    {% endif %}
+
     {% if is_widget_enabled('stats') %}
     <li data-row="4" data-col="2" data-sizex="2" data-sizey="2">
       <div id="stats"></div>
     </li>
     {% endif %}
-    {% if is_widget_enabled('stockquotes') %}
-    <li data-row="4" data-col="3" data-sizex="2" data-sizey="2">
-      <div id="stockquotes"></div>
+
+    {% if is_widget_enabled('deadlines') %}
+    <li data-row="2" data-col="2" data-sizex="3" data-sizey="2">
+      <div id="deadlines"></div>
+    </li>
+    {% endif %}
+    {% if is_widget_enabled('creativiascene') %}
+    <li data-row="2" data-col="2" data-sizex="3" data-sizey="2">
+      <div id="creativiascene"></div>
     </li>
     {% endif %}
   </ul>

@@ -1,0 +1,27 @@
+#deadlines {
+  height: 100%;
+  padding: 5px;
+  background: #3D3242;
+  text-align: center;
+}
+#deadlines h1 {
+  font-size: 55px;
+  margin: 0 0 10px 0;
+}
+#deadlines h2 {
+  font-size: 25px;
+}
+#deadlines p {
+  font-size: 16px;
+}
+#deadlines table {
+  margin: 0 10px 0 10px;
+}
+#deadlines .summary {
+  text-align: left;
+  width: 100%;
+}
+#deadlines .start {
+  text-align: right;
+  white-space: nowrap;
+}

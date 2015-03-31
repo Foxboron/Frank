@@ -1,13 +1,13 @@
 (function () {
   'use strict';
-  var calendar = {
-    'el': document.getElementById('calendar')
+  var deadlines = {
+    'el': document.getElementById('deadlines')
   };
 
-  calendar.controller = function () {
+  deadlines.controller = function () {
     var ctrl = this;
     ctrl.data = {};
-    calendar.el.addEventListener('calendar', function (event) {
+    deadlines.el.addEventListener('deadlines', function (event) {
       var body = event.detail;
       if (body.events.length === 0) {
         return;
@@ -22,13 +22,14 @@
       } else {
         body.today = null;
       }
-      body.events = body.events.slice(0, 4);
+      var lines = Math.floor(((deadlines.el.parentNode.getAttribute("data-sizey")-2)*155) / 20)
+      body.events = body.events.slice(0, 4+lines);
       ctrl.data = body;
-      m.render(calendar.el, calendar.view(ctrl));
+      m.render(deadlines.el, deadlines.view(ctrl));
     });
   };
 
-  calendar.view = function (c) {
+  deadlines.view = function (c) {
     if (Object.keys(c.data).length === 0) {
       return m('p', 'Waiting for data');
     }
@@ -39,17 +40,17 @@
       ]);
     });
     return [
-      m('p.fade', 'Dealines:'),
+      m('p.fade', 'Deadlines:'),
       m('h1', c.data.today ? c.data.today.date.format('HH:mm') : '--:--'),
       m('h2', c.data.today ?
-        jrvs.truncate(c.data.today.summary, 20) : 'Ingen hendelser'),
+        jrvs.truncate(c.data.today.summary, 20) : 'Kommende deadlines!'),
       m('table', rows),
       m('p', {'class': 'fade updated-at'}, 'Sist oppdatert: ' +
         c.data.updatedAt)
     ];
   };
 
-  if (calendar.el !== null) {
-    m.module(calendar.el, calendar);
+  if (deadlines.el !== null) {
+    m.module(deadlines.el, deadlines);
   }
 })();
