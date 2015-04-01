@@ -42,7 +42,8 @@ class Creativiascene(AbstractJob):
         events = []
         d = get_stuff()
         for i in d:
-            if i[0].split(" ", 1)[0] in ("Meet","Game", "Live", "Workshop:", "Lecture:","Cosplay","Competition"):
+            if i[0].split(" ", 1)[0] in ("Meet", "Game", "Live", "Workshop:", "Lecture:","Cosplay"):
+                print i
                 s = i[0].split(": ", 1)[-1]
                 events.append({
                     "id": 1,

@@ -44,7 +44,7 @@
     });
     return [
       m('p.fade', 'Creativia Scenen:'),
-      m('h1', c.data.today ? c.data.today.date.format('HH:mm') : '--:--'),
+      m('h1', c.data.today ? c.data.today.startdate.format('HH:mm') : '--:--'),
       m('h2', c.data.today ?
         jrvs.truncate(c.data.today.summary, 20) : 'Ingenting skjer!'),
       m('table', rows),
