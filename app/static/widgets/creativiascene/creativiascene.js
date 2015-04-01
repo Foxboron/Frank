@@ -41,7 +41,7 @@
       ]);
     });
     return [
-      m('p.fade', 'Creativia Scena:'),
+      m('p.fade', 'Creativia Scenen:'),
       m('h1', c.data.today ? c.data.today.date.format('HH:mm') : '--:--'),
       console.log(c.data.today.summary),
       m('h2', c.data.today ?
