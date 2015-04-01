@@ -3,6 +3,16 @@ body {
   color: #fff;
   font-family: "Montserrat", sans-serif;
 }
+
+.contentWrapper {
+    margin: 10px auto;
+    padding: auto;
+    overflow: hidden;
+    position: static !important;
+    display: inline-block;
+    text-align: left;
+}
+
 .gridster {
   width: 1240px;
   margin: 0 auto;

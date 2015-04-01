@@ -14,8 +14,6 @@
       }
       body.events.forEach(function (e) {
         e.date = moment(e.date).lang('nb');
-        console.log(e);
-        console.log(e.date);
       });
       var eventDate = body.events[0].date,
           now = moment();
@@ -45,6 +43,7 @@
     return [
       m('p.fade', 'Creativia Scena:'),
       m('h1', c.data.today ? c.data.today.date.format('HH:mm') : '--:--'),
+      console.log(c.data.today.summary),
       m('h2', c.data.today ?
         jrvs.truncate(c.data.today.summary, 20) : 'Ingenting skjer!'),
       m('table', rows),
