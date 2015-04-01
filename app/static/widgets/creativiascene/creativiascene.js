@@ -14,11 +14,14 @@
       }
       body.events.forEach(function (e) {
         e.date = moment(e.date).lang('nb');
+        console.log(e);
+        console.log(e.date);
       });
       var eventDate = body.events[0].date,
           now = moment();
       if (eventDate.isBefore(now) || eventDate.isSame(now, 'day')) {
         body.today = body.events.shift() || null;
+        console.log(body.today);
       } else {
         body.today = null;
       }
