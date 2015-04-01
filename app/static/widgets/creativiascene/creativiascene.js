@@ -9,6 +9,7 @@
     ctrl.data = {};
     creativiascene.el.addEventListener('creativiascene', function (event) {
       var body = event.detail;
+      body.today = "Ingenting Skjer";
       if (body.events.length === 0) {
         return;
       }
@@ -43,7 +44,6 @@
     return [
       m('p.fade', 'Creativia Scenen:'),
       m('h1', c.data.today ? c.data.today.date.format('HH:mm') : '--:--'),
-      console.log(c.data.today.summary),
       m('h2', c.data.today ?
         jrvs.truncate(c.data.today.summary, 20) : 'Ingenting skjer!'),
       m('table', rows),
