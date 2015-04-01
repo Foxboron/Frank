@@ -68,10 +68,10 @@ def _run_job(name=None, print_json=False):
 
 def _run_app(debug=False):
     app.debug = debug
-    if not debug:
-        import logging
-        log = logging.getLogger('werkzeug')
-        log.setLevel(logging.ERROR)
+    # if not debug:
+    #     import logging
+    #     log = logging.getLogger('werkzeug')
+    #     log.setLevel(logging.ERROR)
     signal.signal(signal.SIGINT, _teardown)
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, use_reloader=False, threaded=True)

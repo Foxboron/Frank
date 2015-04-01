@@ -14,13 +14,14 @@
         return;
       }
       body.events.forEach(function (e) {
-        e.date = moment(e.date).lang('nb');
+        e.startdate = moment(e.startdate).lang('nb');
+        e.enddate = moment(e.enddate).lang('nb');
       });
-      var eventDate = body.events[0].date,
-          now = moment();
-      if (eventDate.isBefore(now) || eventDate.isSame(now, 'day')) {
+      var eventDate = body.events[0].startdate;
+      var eventEndDate = body.events[0].enddate;
+      var now = moment();
+      if (eventEndDate.isBefore(now) || eventDate.isSame(now, 'day')) {
         body.today = body.events.shift() || null;
-        console.log(body.today);
       } else {
         body.today = null;
       }
@@ -38,7 +39,7 @@
     var rows = c.data.events.map(function (event) {
       return m('tr', [
         m('td', {'class': 'fade summary'}, jrvs.truncate(event.summary, 19)),
-        m('td.start', event.date.format('DD. MM HH:mm'))
+        m('td.start', event.startdate.format('DD. MM HH:mm'))
       ]);
     });
     return [

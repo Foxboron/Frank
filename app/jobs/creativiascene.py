@@ -14,14 +14,22 @@ def get_stuff():
     times = {}
 
     for i in s.subcomponents:
-        if isinstance(i, Event):
+        if isinstance(i, Event) and not "Deadline" in i["SUMMARY"]:
             dt = i["DTSTART"].dt
-            naive = dt.replace(tzinfo=None)
-            if naive >= datetime.utcnow():
-                naive = naive.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
-                times[i["SUMMARY"].split("#",1)[0]] = naive
+            try:
+                end_dt = i["DTEND"].dt
+            except:
+                pass
+            else:
+                naive = dt.replace(tzinfo=None)
+                if naive >= datetime.utcnow():
+                    naive = naive.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
+                    end_naive = end_dt.replace(tzinfo=None)
+                    end_naive = end_naive.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
+                    l = [naive, end_naive]
+                    times[i["SUMMARY"].split("#",1)[0]] = l
 
-    d = sorted(times.items(), key=operator.itemgetter(1))
+    d = sorted(times.items(), key=lambda x: x[1][0])
     return d
 
 
@@ -34,12 +42,13 @@ class Creativiascene(AbstractJob):
         events = []
         d = get_stuff()
         for i in d:
-            if i[0].split(" ", 1)[0] in ("Game", "Live", "Workshop:", "Lecture:"):
+            if i[0].split(" ", 1)[0] in ("Meet","Game", "Live", "Workshop:", "Lecture:","Cosplay","Competition"):
                 s = i[0].split(": ", 1)[-1]
                 events.append({
                     "id": 1,
                     "summary": s,
-                    "date": i[1]
+                    "startdate": i[1][0],
+                    "enddate":i[1][1]
                 })
 
         return {"events": events}
