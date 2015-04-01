@@ -56,9 +56,11 @@ JOBS['uptime'] = {
 
 JOBS['ping'] = {
     'enabled': True,
-    'interval': 3,
+    'interval': 2,
     'hosts': [
         ('google.com', 'google.com'),
+        ('iskrembilen.com', 'iskrembilen.com'),
+        ('gathering.no', 'gathering.no'),
     ],
     'timeout': 1
 }
