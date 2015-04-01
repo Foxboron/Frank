@@ -14,8 +14,7 @@ body {
 }
 
 .gridster {
-  width: 1080px;
-  margin: 0 auto;
+  width: auto; 
 }
 .gridster ul {
   list-style: none;
