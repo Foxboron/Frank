@@ -27,7 +27,7 @@ JOBS['deadlines'] = {
 
 JOBS['creativiascene'] = {
     'enabled': True,
-    'interval': 600,
+    'interval': 1,
 }
 
 JOBS['kiosk'] = {
@@ -60,7 +60,10 @@ JOBS['ping'] = {
     'hosts': [
         ('google.com', 'google.com'),
         ('iskrembilen.com', 'iskrembilen.com'),
-        ('gathering.no', 'gathering.no'),
+        ('gathering.org', 'gathering.org'),
+        ('itavisen.no', 'itavisen.no'),
+        ('127.0.0.1', 'Home, Sweet Home'),
+        ('kcna.co.jp', 'kcna.co.jp')
     ],
     'timeout': 1
 }
