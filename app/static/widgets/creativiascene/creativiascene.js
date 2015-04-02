@@ -14,13 +14,14 @@
         return;
       }
       body.events.forEach(function (e) {
+        console.log(e.summary);
         e.startdate = moment(e.startdate).lang('nb');
         e.enddate = moment(e.enddate).lang('nb');
       });
       var eventDate = body.events[0].startdate;
       var eventEndDate = body.events[0].enddate;
       var now = moment();
-      if (eventEndDate.isBefore(now) || eventDate.isSame(now, 'day')) {
+      if (now.isBefore(eventEndDate) && eventDate.isBefore(now) && eventDate.isSame(now, 'day')) {
         body.today = body.events.shift() || null;
       } else {
         body.today = null;
@@ -45,6 +46,7 @@
     return [
       m('p.fade', 'Creativia Scenen:'),
       m('h1', c.data.today ? c.data.today.startdate.format('HH:mm') : '--:--'),
+      console.log(c.data.today.summary),
       m('h2', c.data.today ?
         jrvs.truncate(c.data.today.summary, 20) : 'Ingenting skjer!'),
       m('table', rows),

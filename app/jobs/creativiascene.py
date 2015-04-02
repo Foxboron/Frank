@@ -22,9 +22,9 @@ def get_stuff():
                 pass
             else:
                 naive = dt.replace(tzinfo=None)
-                if naive >= datetime.utcnow():
+                end_naive = end_dt.replace(tzinfo=None)
+                if end_naive >= datetime.utcnow():
                     naive = naive.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
-                    end_naive = end_dt.replace(tzinfo=None)
                     end_naive = end_naive.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
                     l = [naive, end_naive]
                     times[i["SUMMARY"].split("#",1)[0]] = l
