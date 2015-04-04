@@ -27,7 +27,7 @@ JOBS['deadlines'] = {
 
 JOBS['creativiascene'] = {
     'enabled': True,
-    'interval': 1,
+    'interval': 300,
 }
 
 JOBS['kiosk'] = {
